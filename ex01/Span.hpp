@@ -1,5 +1,9 @@
 #pragma once
 #include <vector>
+#include <algorithm>//std::sort
+#include <iostream>//cout endl
+#include <limits>//std::numeric_limits<int>::max() et min() soit 2147483647 et -2147483648
+// #include <exception>
 
 // template<typename T>
 class Span
@@ -25,7 +29,12 @@ class Span
 		int longestSpan();
 
 		//exceptions
-		class FullException : public std::exception
+		struct FullException : public std::exception
+		{
+			virtual const char* what() const throw();
+		};
+
+		struct NoSpanException : public std::exception
 		{
 			virtual const char* what() const throw();
 		};
