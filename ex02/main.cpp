@@ -92,12 +92,12 @@ int main()
 	std::cout << "\n============ reverse iterator" << std::endl;
 	MutantStack<int>::reverse_iterator rit = copy.rbegin();
 	std::cout << "rit (begin) : " << *rit << std::endl;
-	// MutantStack<int>::reverse_iterator rite = mstack.rend();
+	MutantStack<int>::reverse_iterator rite = copy.rend();
 	// std::cout << "rite (end) : " << *rite << std::endl;
 	++rit;
 	--rit;
 	std::cout << "\n*** copy_stack reverse avec +2 a chacun puisque c pas const***" << std::endl;
-	while (rit != copy.rend())
+	while (rit != rite)
 	{
 		*rit += 2;
 		std::cout << *rit << ", ";
@@ -109,12 +109,12 @@ int main()
 	std::cout << "\n============ const reverse iterator" << std::endl;
 	MutantStack<int>::const_reverse_iterator crit = same.rbegin();
 	std::cout << "rit (begin) : " << *crit << std::endl;
-	// MutantStack<int>::const_reverse_iterator crite = same.rend();
+	MutantStack<int>::const_reverse_iterator crite = same.rend();
 	// std::cout << "rite (end) : " << *crite << std::endl;
 	++crit;
 	--crit;
 	std::cout << "\n*** same_stack (decommentez pour tester si on peut les modifier, normalement non puisque const reverse iterator)***" << std::endl;
-	while (crit != same.rend())
+	while (crit != crite)
 	{
 		// *crit += 2;
 		std::cout << *crit << ", ";
